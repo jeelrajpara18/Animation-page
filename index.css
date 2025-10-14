@@ -12,6 +12,7 @@
     display: flex;
     align-items: center;
     overflow: hidden;
+    background-size: cover;
 }
 
 .hero-section h1 {
@@ -23,11 +24,13 @@
 .cta-box {
     background-color: #000;
     color: white;
+    bottom: 0;
+    z-index: -1;
     /* max-width: 500px; */
 }
 
 @media screen and (max-width : 992px) {
-    .cta-box{
+    .cta-box {
         bottom: -30px;
     }
 }
@@ -41,13 +44,52 @@
     object-fit: contain;
 }
 
+.logo-carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background: #fff;
+    padding: 40px 0;
+    cursor: grab;
+}
+
+.logo-track {
+    display: flex;
+    transition: transform 1s ease-in-out;
+    user-select: none;
+}
+
+.logo-track img {
+    width: 20vw;
+    object-fit: contain;
+    padding: 0 20px;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.logo-track img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .logo-track img {
+        width: 33.33vw;
+    }
+}
+
+@media (max-width: 576px) {
+    .logo-track img {
+        width: 50vw;
+    }
+}
+
 .milestone-section {
     background-color: #0d0d0d;
     color: white;
     /* border-radius: 30px; */
     overflow: hidden;
 }
-
 
 .play-button {
     position: absolute;
@@ -89,36 +131,108 @@
 }
 
 .stat-number {
-  font-size: 3rem;
-  font-weight: 700;
-  display: inline-flex !important;
-  align-items: flex-start !important;
+    font-size: 3rem;
+    font-weight: 700;
+    display: inline-flex !important;
+    align-items: flex-start !important;
 }
 
 .stat-number .suffix {
-  font-size: 1.5rem;
-  vertical-align: super !important;
-  line-height: 1;
-  margin-left: 2px;
+    font-size: 1.5rem;
+    vertical-align: super !important;
+    line-height: 1;
+    margin-left: 2px;
 }
 
-/* Default text color (black) */
-.accordion-button .text-green {
-    color: #000 !important;
-    transition: color 0.3s ease;
+
+
+  #main #faq .card {
+    margin-bottom: 30px;
+    border: 0;
+  }
+
+  #main #faq .card .card-header {
+    border: 0;
+    box-shadow: 0 0 20px 0 rgba(213, 213, 213, 0.5);
+  }
+
+  #main #faq .card .card-header .btn-header-link {
+    color: #fff;
+    display: block;
+    text-align: left;
+    color: #61CE70;
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  #main #faq .card .card-header .btn-header-link:after {
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: bold;
+    float: right;
+  }
+
+  #main #faq .card .card-header .btn-header-link.collapsed {
+    /* background: #A541BB; */
+    color: black;
+    font-weight: bold;
+    font-size: 25px;
+  }
+
+  #main #faq .card .card-header .btn-header-link.collapsed:after {
+    content: "\f106";
+  }
+
+  #main #faq .card .collapse.show {
+    color: #222;
+  }
+
+.short-card .p-5 {
+    height: 95% !important;
 }
 
-/* When accordion is opened, make text green */
-.accordion-button:not(.collapsed) .text-green {
-    color: #61CE70 !important;
-    /* Bootstrap green */
+.card-box {
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Smooth transitions */
-.accordion-button {
-    background-color: #61CE70;
-    transition: all 0.3s ease;
+/* Active (green) state */
+.card-box.active {
+    background-color: #61CE70 !important;
+    color: white !important;
+    height: 90% !important;
 }
+
+.card-box.active h4,
+.card-box.active p,
+.card-box.active .number-div {
+    color: white !important;
+}
+
+/* Keeps the number pill readable */
+.card-box.active .bg-white {
+    background-color: rgba(255, 255, 255, 0.25) !important;
+    color: #fff !important;
+}
+
+
+.service-content {
+    width: 40%;
+}
+
+@media (max-width: 1100px) {
+
+    .service-content {
+        width: 100% !important;
+    }
+
+    .service-img img {
+        width: 100% !important;
+        height: auto !important;
+    }
+}
+
 
 .email-input {
     border: none;
@@ -175,115 +289,106 @@
     color: #61CE70;
     border-radius: 50%;
     padding: 6px;
-    font-size: 0.9rem;
+    font-size: 12px;
 }
 
+.testimonials-section {
+    /* width: 90%;
+    margin: auto; */
+    position: relative;
+}
+
+.heading {
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.carousel-client {
+    overflow-x: hidden;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 1s ease;
+    will-change: transform;
+}
+
+.testimonial-card {
+    flex: 0 0 auto;
+    width: 400px;
+}
+
+/* Controls */
 .carousel-controls {
     display: flex;
+    justify-content: space-between;
     gap: 10px;
+    /* transform: translateY(-50%); */
 }
 
-
-.carousel-control-prev,
-.carousel-control-next {
-    position: static;
-    width: auto;
-    height: auto;
-    background: transparent;
+.carousel-controls button {
+    background: black;
     border: none;
-    opacity: 1;
+    font-size: 28px;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
 }
 
-.card-client {
-    border: none;
-    border-radius: 0;
-    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
-}
 
-@media screen and (min-width: 577px) {
-    .cards-wrapper {
-        display: flex;
-        gap: 20px;
-    }
 
-    .card-client {
-        width: calc(100% / 2);
-    }
-}
 
 @media screen and (max-width: 576px) {
-    .card-client:not(:first-child) {
-        display: none;
-    }
-    .cta-box{
+
+    .cta-box {
         padding: 0 !important;
     }
 }
 
-.learn-more-btn {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    overflow: hidden;
-    border: none;
-    background: #0d0d0d;
-    color: #fff;
-    font-weight: 600;
-    border-radius: 999px;
-    cursor: pointer;
-    transition: all 0.4s ease;
-    padding: 12px 28px 12px 60px;
-    z-index: 1;
-}
+    .btn-stack {
+      position: relative;
+      display: inline-block;
+    }
 
-/* Green circle that starts behind button */
-.learn-more-btn .circle {
-    position: absolute;
-    left: -50px;
-    /* fully behind button initially */
-    top: 0;
-    bottom: 0;
-    width: 50px;
-    background: #61CE70;
-    border-radius: 999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.5s ease;
-    z-index: -1;
-    /* behind button */
-}
+    .btn-stack .green-btn {
+      background-color: #4AD66D;
+      color: white;
+      border: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      transition: all 0.4s ease;
+      border-radius: 50px 0 0px 50px;
+    }
 
-.learn-more-btn .arrow {
-    font-size: 18px;
-    color: #fff;
-    opacity: 0;
-    /* hidden initially */
-    transform: translateX(-10px);
-    transition: all 0.4s ease;
-}
+    .btn-stack .black-btn {
+      background-color: #0b0b0b;
+      color: white;
+      border: none;
+      position: relative;
+      z-index: 2;
+      transition: all 0.4s ease;
+      border-radius: 50px;
+    }
 
-.learn-more-btn .text {
-    z-index: 2;
-    position: relative;
-}
+    .btn-stack:hover .black-btn {
+      transform: translateX(40px);
+    }
 
-/* Hover Effects */
-.learn-more-btn:hover {
-    transform: translateX(8px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-}
+    .btn-stack:hover .green-btn {
+      transform: translateX(0);
+    }
 
-.learn-more-btn:hover .circle {
-    left: 0;
-    /* slides out from behind */
-    z-index: 0;
-}
-
-.learn-more-btn:hover .arrow {
-    opacity: 1;
-    transform: translateX(4px);
-}
+    .btn-stack .green-btn i {
+      font-size: 1rem;
+    }
 
 
 @keyframes fade {
@@ -314,4 +419,3 @@
     background-image: url("./images/subscribe-bg.png");
     background-repeat: no-repeat;
 }
-
