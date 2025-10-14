@@ -8,8 +8,7 @@ videoModal.addEventListener('show.bs.modal', () => {
 videoModal.addEventListener('hidden.bs.modal', () => {
   videoFrame.src = "";
 });
-
-// ✅ Count-up animation when visible
+    
 function countUp(element) {
   const target = +element.getAttribute("data-target");
   const suffix = element.getAttribute("data-suffix") || ""; // e.g. "K+"
