@@ -393,6 +393,7 @@
     .btn-stack:hover .black-btn,
     .btn-stack:hover .green-btn {
         transform: none !important;
+        background-color: #000 !important;
     }
 }
 
