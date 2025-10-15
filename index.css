@@ -8,7 +8,6 @@
 
 .hero-section {
     background: url('./images/hero-bg.png') no-repeat;
-    /* min-height: 90vh; */
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -31,7 +30,10 @@
 
 @media screen and (max-width : 992px) {
     .cta-box {
-        bottom: -30px;
+        bottom: 45%;
+    }
+    .hero-img{
+        max-height: 300px !important;
     }
 }
 
@@ -146,17 +148,17 @@
 
 
 
-  #main #faq .card {
+#main #faq .card {
     margin-bottom: 30px;
     border: 0;
-  }
+}
 
-  #main #faq .card .card-header {
+#main #faq .card .card-header {
     border: 0;
     box-shadow: 0 0 20px 0 rgba(213, 213, 213, 0.5);
-  }
+}
 
-  #main #faq .card .card-header .btn-header-link {
+#main #faq .card .card-header .btn-header-link {
     color: #fff;
     display: block;
     text-align: left;
@@ -164,29 +166,29 @@
     font-size: 25px;
     font-weight: bold;
     text-decoration: none;
-  }
+}
 
-  #main #faq .card .card-header .btn-header-link:after {
+#main #faq .card .card-header .btn-header-link:after {
     content: "\f107";
     font-family: "Font Awesome 5 Free";
     font-weight: bold;
     float: right;
-  }
+}
 
-  #main #faq .card .card-header .btn-header-link.collapsed {
+#main #faq .card .card-header .btn-header-link.collapsed {
     /* background: #A541BB; */
     color: black;
     font-weight: bold;
     font-size: 25px;
-  }
+}
 
-  #main #faq .card .card-header .btn-header-link.collapsed:after {
+#main #faq .card .card-header .btn-header-link.collapsed:after {
     content: "\f106";
-  }
+}
 
-  #main #faq .card .collapse.show {
+#main #faq .card .collapse.show {
     color: #222;
-  }
+}
 
 .short-card .p-5 {
     height: 95% !important;
@@ -341,9 +343,6 @@
     transition: 0.3s;
 }
 
-
-
-
 @media screen and (max-width: 576px) {
 
     .cta-box {
@@ -351,44 +350,51 @@
     }
 }
 
-    .btn-stack {
-      position: relative;
-      display: inline-block;
-    }
+.btn-stack {
+    position: relative;
+    display: inline-block;
+}
 
-    .btn-stack .green-btn {
-      background-color: #4AD66D;
-      color: white;
-      border: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 1;
-      transition: all 0.4s ease;
-      border-radius: 50px 0 0px 50px;
-    }
+.btn-stack .green-btn {
+    background-color: #4AD66D;
+    color: white;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: all 0.4s ease;
+    border-radius: 50px 0 0px 50px;
+}
 
-    .btn-stack .black-btn {
-      background-color: #0b0b0b;
-      color: white;
-      border: none;
-      position: relative;
-      z-index: 2;
-      transition: all 0.4s ease;
-      border-radius: 50px;
-    }
+.btn-stack .black-btn {
+    background-color: #0b0b0b;
+    color: white;
+    border: none;
+    position: relative;
+    z-index: 2;
+    transition: all 0.4s ease;
+    border-radius: 50px;
+}
 
-    .btn-stack:hover .black-btn {
-      transform: translateX(40px);
-    }
+.btn-stack:hover .black-btn {
+    transform: translateX(40px);
+}
 
+.btn-stack:hover .green-btn {
+    transform: translateX(0);
+}
+
+.btn-stack .green-btn i {
+    font-size: 1rem;
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .btn-stack:hover .black-btn,
     .btn-stack:hover .green-btn {
-      transform: translateX(0);
+        transform: none !important;
     }
-
-    .btn-stack .green-btn i {
-      font-size: 1rem;
-    }
+}
 
 
 @keyframes fade {
