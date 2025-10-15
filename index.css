@@ -30,6 +30,7 @@
 
 @media screen and (max-width : 992px) {
     .cta-box {
+        padding: 10px !important;
         bottom: 45%;
     }
     .hero-img{
@@ -346,7 +347,7 @@
 @media screen and (max-width: 576px) {
 
     .cta-box {
-        padding: 0 !important;
+        padding: 10px !important;
     }
 }
 
